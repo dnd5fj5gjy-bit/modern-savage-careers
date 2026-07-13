@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modern Savage - Employee #1</title>
+<meta name="description" content="Help us build Modern Savage. The first hire on a founder-backed primal health brand, at the exact moment it comes alive.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bone:#f4f1ea; --bone2:#ece7db; --ink:#1b1917; --ink2:#4a463f;
+    --olive:#3f4d2e; --olive2:#556b34; --clay:#a9552f; --line:#ddd6c6; --white:#fbfaf6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bone);color:var(--ink);
+    -webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  header{padding:26px 0 8px}
+  .brand{font-size:15px;font-weight:800;letter-spacing:3px;text-transform:uppercase}
+  .brand span{color:var(--olive2)}
+
+  .hero{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--clay);margin-bottom:18px}
+  h1{font-size:clamp(44px,7vw,86px);font-weight:900;letter-spacing:-2px;line-height:.98}
+  h1 em{font-style:normal;color:var(--olive2)}
+  .lede{font-size:clamp(18px,2.3vw,23px);color:var(--ink2);max-width:640px;margin-top:26px;font-weight:400}
+  .lede b{color:var(--ink);font-weight:700}
+  .stats{display:flex;gap:38px;margin-top:34px;flex-wrap:wrap}
+  .stat .n{font-size:34px;font-weight:900;letter-spacing:-1px;color:var(--olive2)}
+  .stat .l{font-size:13px;color:var(--ink2);letter-spacing:.3px;margin-top:2px}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:56px 0}
+  @media(max-width:860px){.cols{grid-template-columns:1fr;gap:40px}}
+  h2{font-size:15px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);margin-bottom:20px}
+  .who li{list-style:none;padding:16px 0;border-top:1px solid var(--line);display:flex;gap:14px}
+  .who li:last-child{border-bottom:1px solid var(--line)}
+  .who .t{font-weight:700;font-size:16px}
+  .who .d{color:var(--ink2);font-size:15px;margin-top:3px}
+  .who .dot{color:var(--olive2);font-weight:900;font-size:18px;line-height:1.3}
+  .meta{margin-top:26px;font-size:15px;color:var(--ink2)}
+  .meta b{color:var(--ink)}
+
+  /* form */
+  .formcard{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:34px;box-shadow:0 12px 40px rgba(50,45,30,.06);position:sticky;top:24px}
+  .formcard h3{font-size:24px;font-weight:800;letter-spacing:-.5px}
+  .formcard .sub{color:var(--ink2);font-size:15px;margin:8px 0 24px}
+  label{display:block;font-size:13px;font-weight:700;letter-spacing:.4px;margin:0 0 7px;text-transform:uppercase;color:var(--ink2)}
+  input[type=text],input[type=email],textarea{width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:10px;
+    font:inherit;font-size:16px;background:var(--bone);color:var(--ink);transition:border .15s,box-shadow .15s}
+  input:focus,textarea:focus{outline:none;border-color:var(--olive2);box-shadow:0 0 0 3px rgba(85,107,52,.15);background:#fff}
+  textarea{resize:vertical;min-height:120px}
+  .field{margin-bottom:20px}
+  .file{border:1.5px dashed var(--line);border-radius:10px;padding:22px;text-align:center;cursor:pointer;background:var(--bone);transition:.15s}
+  .file:hover{border-color:var(--olive2);background:#fff}
+  .file input{display:none}
+  .file .ico{font-size:22px}
+  .file .txt{font-size:14px;color:var(--ink2);margin-top:6px}
+  .file .txt b{color:var(--olive2)}
+  .file.has{border-color:var(--olive2);border-style:solid;background:#fff}
+  .hint{font-size:12px;color:#8a857a;margin-top:7px}
+  button.submit{width:100%;padding:16px;background:var(--ink);color:var(--white);border:none;border-radius:10px;
+    font:inherit;font-weight:800;font-size:16px;letter-spacing:.4px;cursor:pointer;margin-top:6px;transition:.15s}
+  button.submit:hover{background:var(--olive)}
+  button.submit:disabled{opacity:.6;cursor:not-allowed}
+  .msg{margin-top:16px;padding:14px 16px;border-radius:10px;font-size:15px;display:none}
+  .msg.err{display:block;background:#fbeae4;color:#9a3412;border:1px solid #f1c9b8}
+  .msg.ok{display:block;background:#eaf0e0;color:#3f4d2e;border:1px solid #cdd9b6}
+  .company{position:absolute;left:-9999px} /* honeypot */
+
+  .success{display:none;text-align:center;padding:20px 0}
+  .success .ring{width:64px;height:64px;border-radius:50%;background:var(--olive2);color:#fff;font-size:32px;
+    display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+  .success h3{font-size:24px}
+  .success p{color:var(--ink2);margin-top:10px;font-size:16px}
+
+  footer{border-top:1px solid var(--line);padding:34px 0 60px;text-align:center;color:var(--ink2);font-size:14px}
+  footer .tag{font-weight:700;color:var(--ink);letter-spacing:.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><div class="brand">MODERN <span>SAVAGE</span></div></header>
+
+  <section class="hero">
+    <div class="eyebrow">We're hiring - Employee #1</div>
+    <h1>Help us build<br>something <em>wild.</em></h1>
+    <p class="lede">Modern Savage is our new primal health brand: a nutrient-dense organ blend built on the way the human body was actually designed to be fed. We launch in the US this September. <b>The hard part is done</b> - formula locked, first run ordered, fulfilment and banking signed. Now we need the person who makes the whole machine run.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">55,000+</div><div class="l">on the waitlist</div></div>
+      <div class="stat"><div class="n">Sept 2026</div><div class="l">US launch</div></div>
+      <div class="stat"><div class="n">Seat #1</div><div class="l">founder-backed brand</div></div>
+    </div>
+  </section>
+
+  <div class="cols">
+    <div>
+      <h2>Who we're looking for</h2>
+      <ul class="who">
+        <li><span class="dot">&bull;</span><div><div class="t">Young, hungry, genuinely motivated</div><div class="d">You want to build something, not just fill a seat.</div></div></li>
+        <li><span class="dot">&bull;</span><div><div class="t">AI-native</div><div class="d">You use modern tools to do the work of a team of five, always hunting the smarter, faster way.</div></div></li>
+        <li><span class="dot">&bull;</span><div><div class="t">A fast learner with real drive</div><div class="d">Direct experience matters less than appetite. We'll back the right person and teach the rest.</div></div></li>
+        <li><span class="dot">&bull;</span><div><div class="t">Comfortable in the weeds</div><div class="d">Logistics, admin, supplier chases - the unglamorous details that decide whether a brand ships.</div></div></li>
+        <li><span class="dot">&bull;</span><div><div class="t">A finisher</div><div class="d">Nothing falls through the cracks on your watch.</div></div></li>
+      </ul>
+      <p class="meta"><b>Remote, UK or US.</b> Full-time. Starting now.<br>You'll have your hands on every part of it - suppliers, fulfilment, customers, compliance, launch - and build the operation everything else grows on.</p>
+    </div>
+
+    <div>
+      <div class="formcard" id="card">
+        <div id="formview">
+          <h3>Put your name in.</h3>
+          <p class="sub">Tell us who you are, why it's you, and attach your CV. We read every one.</p>
+          <form id="applyForm" novalidate>
+            <div class="field">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="note">Why you? (personal note)</label>
+              <textarea id="note" name="note" placeholder="Write to us. What have you built, and why do you want this seat?"></textarea>
+            </div>
+            <div class="field">
+              <label for="cv">Your CV</label>
+              <label class="file" id="fileLabel" for="cv">
+                <div class="ico">&#128206;</div>
+                <div class="txt" id="fileTxt"><b>Choose a file</b> or drop it here</div>
+                <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx,.rtf,.txt,.pages" required>
+              </label>
+              <div class="hint">PDF, Word, RTF or TXT. Up to 10 MB.</div>
+            </div>
+            <input type="text" class="company" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button type="submit" class="submit" id="submitBtn">Send application</button>
+            <div class="msg" id="msg"></div>
+          </form>
+        </div>
+        <div class="success" id="successView">
+          <div class="ring">&#10003;</div>
+          <h3>Application received.</h3>
+          <p>We've got it - safely stored, nothing lost. If it's a fit, we'll be in touch at the email you gave us.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="tag">Modern by Design, Savage by Nature.</div>
+    <div style="margin-top:8px">Bear Grylls Ventures &middot; Modern Savage</div>
+  </footer>
+</div>
+
+<script>
+  // ==== Backend endpoint. Swap this when we move to a stable/managed backend. ====
+  const BACKEND = "https://westminster-test-genius-joe.trycloudflare.com/apply";
+
+  const form = document.getElementById('applyForm');
+  const btn = document.getElementById('submitBtn');
+  const msg = document.getElementById('msg');
+  const cv = document.getElementById('cv');
+  const fileLabel = document.getElementById('fileLabel');
+  const fileTxt = document.getElementById('fileTxt');
+
+  cv.addEventListener('change', () => {
+    if (cv.files && cv.files[0]) {
+      fileTxt.innerHTML = '<b>' + cv.files[0].name.replace(/</g,'&lt;') + '</b>';
+      fileLabel.classList.add('has');
+    } else {
+      fileTxt.innerHTML = '<b>Choose a file</b> or drop it here';
+      fileLabel.classList.remove('has');
+    }
+  });
+
+  function showErr(t){ msg.className='msg err'; msg.textContent=t; }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    msg.className='msg'; msg.textContent='';
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    if (!name) return showErr('Please enter your name.');
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return showErr('Please enter a valid email address.');
+    if (!cv.files || !cv.files[0]) return showErr('Please attach your CV.');
+    if (cv.files[0].size > 10*1024*1024) return showErr('Your CV is over 10 MB. Please attach a smaller file.');
+
+    btn.disabled = true; btn.textContent = 'Sending...';
+    try {
+      const fd = new FormData(form);
+      const res = await fetch(BACKEND, { method:'POST', body: fd });
+      const data = await res.json().catch(()=>({}));
+      if (res.ok && data.ok) {
+        document.getElementById('formview').style.display='none';
+        document.getElementById('successView').style.display='block';
+        document.getElementById('card').scrollIntoView({behavior:'smooth', block:'center'});
+      } else {
+        showErr(data.error || 'Something went wrong. Please try again.');
+        btn.disabled=false; btn.textContent='Send application';
+      }
+    } catch (err) {
+      showErr('We could not reach the server. Please check your connection and try again.');
+      btn.disabled=false; btn.textContent='Send application';
+    }
+  });
+</script>
+</body>
+</html>
