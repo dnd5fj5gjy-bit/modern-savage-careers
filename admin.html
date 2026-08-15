@@ -48,7 +48,7 @@
 
 <script>
   // Backend root (auto-repointed by the supervisor if the tunnel address changes).
-  const BACKEND = "https://certification-display-webmaster-patrol.trycloudflare.com/apply";
+  const BACKEND = "https://api.trycloudflare.com/apply";
   const ROOT = BACKEND.replace(/\/apply$/, "");
   const esc = s => (s||"").replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 
